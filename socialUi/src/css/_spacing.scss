@@ -1,0 +1,51 @@
+// Custom spacing utilities
+@use "sass:map";
+
+// Function to get spacing value
+@function get-spacing($size, $dimension: null) {
+  $space: map.get($spaces, $size);
+  @if $dimension {
+    @return map.get($space, $dimension);
+  }
+  @return $space;
+}
+
+// Spacing mixins
+@mixin padding($size) {
+  padding: get-spacing($size, "y") get-spacing($size, "x");
+}
+
+@mixin margin($size) {
+  margin: get-spacing($size, "y") get-spacing($size, "x");
+}
+
+// Generate spacing utilities
+@each $name, $space in $spaces {
+  .q-pa-#{$name} {
+    padding: map.get($space, "y") map.get($space, "x");
+  }
+  
+  .q-ma-#{$name} {
+    margin: map.get($space, "y") map.get($space, "x");
+  }
+  
+  .q-px-#{$name} {
+    padding-left: map.get($space, "x");
+    padding-right: map.get($space, "x");
+  }
+  
+  .q-py-#{$name} {
+    padding-top: map.get($space, "y");
+    padding-bottom: map.get($space, "y");
+  }
+  
+  .q-mx-#{$name} {
+    margin-left: map.get($space, "x");
+    margin-right: map.get($space, "x");
+  }
+  
+  .q-my-#{$name} {
+    margin-top: map.get($space, "y");
+    margin-bottom: map.get($space, "y");
+  }
+}

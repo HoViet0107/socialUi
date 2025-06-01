@@ -1,0 +1,77 @@
+.chat-page {
+  height: calc(100vh - 64px);
+  padding: 0;
+}
+
+.chat-container {
+  display: flex;
+  height: 100%;
+  background: #f0f2f5;
+}
+
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-left: 1px solid #e4e6eb;
+}
+
+.chat-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .chat-page {
+    height: calc(100vh - 50px);
+    overflow: hidden;
+  }
+
+  .chat-container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .conversation-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: #f0f2f5;
+    transition: left 0.3s ease;
+  }
+
+  .chat-main {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background: white;
+    border: none;
+    transition: left 0.3s ease;
+  }
+
+  .chat-empty {
+    display: none;
+  }
+
+  /* Show chat and hide conversation list when a chat is selected */
+  .chat-container.has-selected-chat .conversation-list {
+    left: -100%; /* Move conversation list off screen */
+  }
+  
+  .chat-container.has-selected-chat .chat-main {
+    left: 0; /* Move chat into view */
+  }
+}

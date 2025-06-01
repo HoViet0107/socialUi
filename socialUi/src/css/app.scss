@@ -1,0 +1,187 @@
+// app global css in SCSS form
+@import './quasar.variables.scss';
+@import './spacing';
+
+// Global transitions
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+// Global styles
+:root {
+  --q-primary: #{$primary};
+  --q-secondary: #{$secondary};
+  --q-accent: #{$accent};
+  --q-space-base: #{$space-base};
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: $dark;
+  background: #f5f7fa;
+  line-height: 1.6;
+}
+
+// Card styles
+.q-card {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 25px 0 rgba(0,0,0,.1);
+  }
+}
+
+// Button styles
+.q-btn {
+  letter-spacing: 0.025em;
+  font-weight: 500;
+  
+  &:not(.q-btn--flat):not(.q-btn--outline) {
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+    }
+    
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+// Input styles
+.q-field--filled {
+  .q-field__control {
+    background: rgba(0,0,0,0.02);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(0,0,0,0.04);
+    }
+  }
+  
+  &.q-field--focused {
+    .q-field__control {
+      background: white;
+      box-shadow: 0 0 0 2px rgba($primary, 0.2);
+    }
+  }
+}
+
+// Avatar styles
+.q-avatar {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// List item styles
+.q-item {
+  transition: all 0.3s ease;
+  
+  &:hover:not(.q-router-link--active) {
+    background: rgba(0,0,0,0.03);
+  }
+  
+  &.q-router-link--active {
+    font-weight: 500;
+  }
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+  
+  &:hover {
+    background: #a8a8a8;
+  }
+}
+
+// Loading overlay
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+// Toast notifications
+.vue-toastification__toast {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+}
+
+// Responsive utilities
+@media (max-width: 599px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+// Accessibility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+// Print styles
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

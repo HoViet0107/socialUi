@@ -1,0 +1,132 @@
+// Quasar SCSS (& Sass) Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
+
+// Check documentation for full list of Quasar variables
+
+// Your own variables (that are declared here) and Quasar's own
+// ones will be available out of the box in your .vue/.scss/.sass files
+
+// It's highly recommended to change the default colors
+// to match your app's branding.
+// Tip: Use the "Theme Builder" on Quasar's documentation website.
+
+$primary   : #1976D2;
+$secondary : #26A69A;
+$accent    : #9C27B0;
+
+$dark      : #1D1D1D;
+$dark-page : #121212;
+
+$positive  : #21BA45;
+$negative  : #C10015;
+$info      : #31CCEC;
+$warning   : #F2C037;
+
+// Theme colors
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "accent": $accent,
+  "positive": $positive,
+  "negative": $negative,
+  "info": $info,
+  "warning": $warning
+);
+
+// Generate color variations
+@each $name, $color in $theme-colors {
+  .bg-#{$name}-light {
+    background: mix(white, $color, 85%);
+  }
+  
+  .text-#{$name}-dark {
+    color: scale-color($color, $lightness: -25%);
+  }
+}
+
+// Typography
+$typography-font-family : 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$body-font-size        : 14px;
+$body-line-height      : 1.5;
+
+// Border radius
+$generic-border-radius : 8px;
+$button-border-radius  : $generic-border-radius;
+$input-border-radius   : $generic-border-radius;
+
+// Shadows
+$shadow-color          : rgba(0, 0, 0, .1);
+$shadow-1             : 0 1px 3px $shadow-color;
+$shadow-2             : 0 3px 6px $shadow-color;
+$shadow-3             : 0 10px 20px $shadow-color;
+$shadow-4             : 0 14px 28px $shadow-color;
+$shadow-5             : 0 19px 38px $shadow-color;
+
+// Breakpoints
+$breakpoint-xs        : 0;
+$breakpoint-sm        : 600px;
+$breakpoint-md        : 960px;
+$breakpoint-lg        : 1280px;
+$breakpoint-xl        : 1920px;
+
+// Spacing
+$space-base   : 16px;
+$space-x-base : $space-base;
+$space-y-base : $space-base;
+
+$space-none : (
+  "x": 0,
+  "y": 0
+);
+
+$space-xs : (
+  "x": ($space-x-base * .25),
+  "y": ($space-y-base * .25)
+);
+
+$space-sm : (
+  "x": ($space-x-base * .5),
+  "y": ($space-y-base * .5)
+);
+
+$space-md : (
+  "x": $space-x-base,
+  "y": $space-y-base
+);
+
+$space-lg : (
+  "x": ($space-x-base * 1.5),
+  "y": ($space-y-base * 1.5)
+);
+
+$space-xl : (
+  "x": ($space-x-base * 3),
+  "y": ($space-y-base * 3)
+);
+
+$spaces: (
+  "none": $space-none,
+  "xs": $space-xs,
+  "sm": $space-sm,
+  "md": $space-md,
+  "lg": $space-lg,
+  "xl": $space-xl
+);
+
+// Generic margins and paddings
+$flex-gutter-x: $space-base;
+$flex-gutter-y: $space-base;
+
+$layout-padding: $space-base;
+$button-padding: 4px 16px;
+
+// Layout variables
+$toolbar-min-height: 56px;
+$toolbar-padding: 0 $space-base;
+
+// Border radius
+$generic-border-radius: 4px;
+$button-border-radius: $generic-border-radius;
+$generic-hover-transition: .3s cubic-bezier(.25, .8, .5, 1);
